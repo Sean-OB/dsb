@@ -34,52 +34,52 @@
 
 										<!-- Full-width images with number and caption text -->
 										<div class="mySlides fade">
-											<div class="numbertext">1/8</div>
+											<div class="numbertext"></div>
 											<img src="images/usudc2018.jpg" style="width:100%">
 										</div>
-										<div class="captiontext">Berkeley advances three teams to elimination rounds at the 2018 US Universities
-																Debating Championship, marking the end of our most competitively successful BP season to date.</div>
+										<div class="captiontext fade">Three Berkeley teams advance to elimination rounds at the 2018 US Universities
+																Debating Championship</div>
 										<div class="mySlides fade">
-											<div class="numbertext">2 / 8</div>
+											<div class="numbertext"></div>
 											<img src="images/apdanats2018.jpg" style="width:100%" alt="Kevin and Emma representing Berkeley at 2018 APDA Nationals">
 										</div>
-										<div class="captiontext">Kevin and Emma representing Berkeley at 2018 APDA Nationals</div>
+										<div class="captiontext fade">Kevin and Emma representing Berkeley at 2018 APDA Nationals</div>
 									
 										<div class="mySlides fade">
-											<div class="numbertext">3 / 8</div>
-											<img src="images/wudc2018.jpg" style="width:100%" alt="2018 World Universities Debating Championship in Mexico">
+											<div class="numbertext"></div>
+											<img src="images/wudc2018.jpg" style="width:100%" alt="The Berkeley contingent at the 2018 World Universities Debating Championship in Mexico">
 										</div>
-										<div class="captiontext">2018 World Universities Debating Championship in Mexico</div>
+										<div class="captiontext">The Berkeley contingent at the 2018 World Universities Debating Championship in Mexico</div>
 									
 										<div class="mySlides fade">
-											<div class="numbertext">4 / 8</div>
-											<img src="images/london2017.jpg" style="width:100%">
+											<div class="numbertext"></div>
+											<img src="images/london2017.jpg" style="width:100%" alt="Visiting London after the 2017 Cambridge IV">
 										</div>
-										<div class="captiontext">Caption Three</div>
+										<div class="captiontext">Visiting London after the 2017 Cambridge IV</div>
 
 										<div class="mySlides fade">
-											<div class="numbertext">5 / 8</div>
-											<img src="images/standrews2017.jpg" style="width:100%">
+											<div class="numbertext"></div>
+											<img src="images/standrews2017.jpg" style="width:100%" alt="Henry in the finals of the St. Andrew's Day Debate in Scottish Parliament">
 										</div>
-										<div class="captiontext">Caption Three</div>
+										<div class="captiontext">Henry in the finals of the St. Andrew's Day Debate in Scottish Parliament</div>
 
 										<div class="mySlides fade">
-											<div class="numbertext">6 / 8</div>
-											<img src="images/yale2017.jpg" style="width:100%">
+											<div class="numbertext"></div>
+											<img src="images/yale2017.jpg" style="width:100%" alt="The team at the 2017 Yale IV tournament">
 										</div>
-										<div class="captiontext">Caption Three</div>
+										<div class="captiontext">The team at the 2017 Yale IV tournament</div>
 
 										<div class="mySlides fade">
-											<div class="numbertext">7 / 8</div>
-											<img src="images/moody2017.jpg" style="width:100%">
+											<div class="numbertext"></div>
+											<img src="images/moody2017.jpg" style="width:100%" alt="Kevin and Emma at the 2017 Moody Bible APDA Tournament">
 										</div>
-										<div class="captiontext">Caption Three</div>
+										<div class="captiontext">Kevin and Emma at the 2017 Moody Bible APDA Tournament</div>
 
 										<div class="mySlides fade">
-											<div class="numbertext">8 / 8</div>
-											<img src="images/dominican2017.jpg" style="width:100%">
+											<div class="numbertext"></div>
+											<img src="images/dominican2017.jpg" style="width:100%" alt="Violet and Alec in the finals of the 2017 Dominican Invitational">
 										</div>
-										<div class="captiontext">Caption Three</div>
+										<div class="captiontext">Violet and Alec in the finals of the 2017 Dominican Invitational</div>
 										
 										<!-- Next and previous buttons -->
 										<!--
@@ -98,40 +98,6 @@
 										<span class="dot" onclick="currentSlide(7)"></span> 
 										<span class="dot" onclick="currentSlide(8)"></span> 
 									</div>
-									<script>
-									var slideIndex = 1;
-									showSlides(slideIndex);
-									
-									// Next/previous controls
-									function plusSlides(n) {
-									  showSlides(slideIndex += n);
-									}
-									
-									// Thumbnail image controls
-									function currentSlide(n) {
-									  showSlides(slideIndex = n);
-									}
-									
-									function showSlides(n) {
-									  var i;
-									  var slides = document.getElementsByClassName("mySlides");
-									  var captions = document.getElementsByClassName("captiontext");
-									  var dots = document.getElementsByClassName("dot");
-									  if (n > slides.length) {slideIndex = 1} 
-									  if (n < 1) {slideIndex = slides.length}
-									  for (i = 0; i < slides.length; i++) {
-										  slides[i].style.display = "none"; 
-										  captions[i].style.display = "none";
-									  }
-									  for (i = 0; i < dots.length; i++) {
-										  dots[i].className = dots[i].className.replace(" active", "");
-									  }
-									  slides[slideIndex-1].style.display = "block"; 
-									  captions[slideIndex-1].style.display = "block";
-									  dots[slideIndex-1].className += " active";
-									}
-
-									</script>
 								<!-- img src="images/usudc2018.jpg" width=500em -->
 								<p>To view our competitive achievements or find more information about membership, follow our
 										<a href="https://www.facebook.com/debateberkeley/" target="_blank">Facebook page</a>.</p>
@@ -140,7 +106,6 @@
 							<ul>
 								<li><a href="#leadership">Leadership</a></li>
 								<li><a href="#results">Results</a></li>
-								<li><a href="#photos">Photos</a></li>
 								<li><a href="#contact">Contact</a></li>
 								<!--<li><a href="#elements">Elements</a></li>-->
 							</ul>
@@ -162,20 +127,37 @@
 							<article id="results">
 								<h2 class="major">Results</h2>
 								<span class="image main"><img src="images/pic02.jpg" alt="" /></span>
-								<p>Adipiscing magna sed dolor elit. Praesent eleifend dignissim arcu, at eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent urna nisi, fringila lorem et vehicula lacinia quam. Integer sollicitudin mauris nec lorem luctus ultrices.</p>
-								<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus pharetra. Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus amet feugiat tempus.</p>
-							</article>
-
-						<!-- Photos -->
-							<article id="photos">
-								<h2 class="major">Photos</h2>
-								<span class="image main"><img src="images/pic03.jpg" alt="" /></span>
-								<p>Lorem ipsum dolor sit amet, consectetur et adipiscing elit. Praesent eleifend dignissim arcu, at eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent urna nisi, fringila lorem et vehicula lacinia quam. Integer sollicitudin mauris nec lorem luctus ultrices. Aliquam libero et malesuada fames ac ante ipsum primis in faucibus. Cras viverra ligula sit amet ex mollis mattis lorem ipsum dolor sit amet.</p>
+								<h3>2017 - 2018</h3>
+								<h4>US Universities Debating Championships</h4>
+									<p>Henry Weikel/Pranav Shankar broke 18th seed to octofinals, marking the first nationals break in Berkeley's history.</p>
+									<p>Ariana Jessa/Catherine Wang broke as the highest ranked team in the nation in the novice division, advancing to novice quarterfinals.</p>
+									<p>Jonathan Bodine/Ishaan Srivastava broke 13th seed to novice quarterfinals.</p>
+								<h4>America's Cup</h4>
+									<p>Henry Weikel/Pranav Shankar advanced to the finals.</p>
+								<h4>Stanford APDA</h4>
+									<p>Luke Zhang/Ariana Jessa and Jake Klawans/Laurel McGrane broke in the novice division. Luke and Ariana advanced to the novice finals and were 4th and 6th ranked novice speakers respectively.</p>
+								<h4>Chicago APDA</h4>
+									<p>Emma Barton/Kevin Klyman were 3rd and 7th ranked speakers.</p>
+								<h4>Brandeis IV</h4>
+									<p>Luke Zhang/Catherine Wang broke to the novice finals, with Luke as the 8th best novice speaker.</p>
+								<h4>Cambridge IV</h4>
+									<p>Henry Weikel broke 6th to the quarterfinals.</p>
+								<h4>Yale IV</h4>
+									<p>Pranav Shanker/Dennis Tekell broke to the quarterfinals and Luke Zhang/Catherine Wang broke to the novice finals. Luke was the 9th ranked novice speaker.</p>
+								<h4>Oxford IV</h4>
+									<p>Henry Weikel broke 13th to quarterfinals.</p>
+								<h4>Moody Bible APDA</h4>
+									<p>Kevin Klyman/Emma Barton broke to the quarterfinals, and Kevin was the 2nd ranked speaker.</p>
+								<h4>Durham IV</h4>
+									<p>Henry Weikel was the 4th ranked speaker.</p>
+								<h4>Edinburgh Cup</h4>
+									<p>Henry Weikel broke first, was the top ranked speaker, and won the Edinburgh cup.</p>
 							</article>
 
 						<!-- Contact -->
 							<article id="contact">
 								<h2 class="major">Contact</h2>
+								<p>You can message us at our <a href="https://www.facebook.com/debateberkeley/" target="_blank">Facebook page</a> or leave us a message here!</p>
 								<form method="post" action="#">
 									<div class="fields">
 										<div class="field half">
@@ -196,12 +178,6 @@
 										<li><input type="reset" value="Reset" /></li>
 									</ul>
 								</form>
-								<ul class="icons">
-									<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-									<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-									<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-									<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-								</ul>
 							</article>
 
 						<!-- Elements -->
@@ -450,7 +426,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 
 				<!-- Footer -->
 					<footer id="footer">
-						<p class="copyright">&copy; 2019. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+						<p class="copyright">&copy; 2019. Design Scheme: <a href="https://html5up.net" target="_blank">HTML5 UP</a>. Created by <a href="https://github.com/Sean-OB" target="_blank">Sean O'Brien</a>.</p>
 					</footer>
 
 			</div>
@@ -464,6 +440,6 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-
+			<script src="assets/js/slideshow.js"></script>
 	</body>
 </html>
