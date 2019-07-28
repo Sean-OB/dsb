@@ -1330,7 +1330,7 @@ input, select, textarea {
 				}
 
 			#header .content p {
-				text-transform: uppercase;
+				/* text-transform: uppercase; */
 				letter-spacing: 0.2rem;
 				font-size: 0.8rem;
 				line-height: 2;
@@ -1686,6 +1686,22 @@ input, select, textarea {
 	text-align: center;
 	display: none;
   }
+
+.captiontext2 {
+	color: #f2f2f2;
+	font-size: 15px;
+	font-family: times;
+	padding: 8px 12px;
+	display: none;
+	position: relative;
+	bottom: 8px;
+	width: 50em;
+	text-indent: -18em;
+/*	background-color: rgba(0, 0, 0, 0.8); */
+	text-align: center;
+	display: none;
+
+}
   
   /* Number text (1/3 etc) */
   .numbertext {
