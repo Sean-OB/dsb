@@ -1,34 +1,71 @@
-var slideIndex = 1;
-var timer = setTimeout(() => plusSlides(1), 5000);
-showSlides(slideIndex);
+$(window).on('load', function(){
+    var pages = $('#slideshow-container li'), current = 0;
+    var currentPage, nextPage;
+    var timeoutID;
+    var buttonClicked = 0;
 
-// Next/previous controls
-function plusSlides(n) {
-    showSlides(slideIndex += n);
-}
+    var handler1 = function() {
+        console.log(current);
+        buttonClicked = 1;
+        $('#slideshow-container .button').off();
+        currentPage = pages.eq(current);
+        if ($(this).hasClass('prevButton')) {
+            if (current <= 0) {
+                current = pages.length - 1;
+            } else {
+                current -= 1;
+            }
+            nextPage = pages.eq(current);
+            nextPage.css('marginLeft', -30 + 'em');
+            nextPage.show();
+            nextPage.animate({marginLeft: 0}, 800, () => currentPage.hide());
+            currentPage.animate({marginLeft: 30 + 'em'}, 800, () => $('#slideshow-container .button').on('click', handler1));
+        } else {
+            if (current >= pages.length - 1) {
+                current = 0;
+            } else {
+                current += 1;
+            }
+            nextPage = pages.eq(current);
+            nextPage.css('marginLeft', 30 + 'em');
+            nextPage.show();
+            nextPage.animate({marginLeft: 0}, 800, function(){});
+            currentPage.animate({marginLeft: -30 + 'em'}, 800, () => $('#slideshow-container .button').on('click', handler1));
+        }
+    };
 
-// Thumbnail image controls
-function currentSlide(n) {
-    showSlides(slideIndex = n);
-}
+        var handler2=function(){
+			if (buttonClicked==0) {
+			$('#slideshow-container .button').off('click', handler1);
+			currentPage= pages.eq(current);
+			if (current >= pages.length-1)
+				current=0;
+			else
+				current=current+1;
+			nextPage = pages.eq(current);	
+			nextPage.css("marginLeft",604);
+			nextPage.show();
+			nextPage.animate({ marginLeft: 0 }, 800,function(){
+			});
+			currentPage.animate({ marginLeft: -604 }, 800,function(){
+				currentPage.hide();
+				$('#slideshow-container .button').on('click', handler1);
+			});
+			timeoutID=setTimeout(function(){
+				handler2();	
+			}, 4000);
+			}
+		};
 
-function showSlides(n) {
-    clearTimeout(timer);
-    var i;
-    var slides = document.getElementsByClassName("mySlides");
-    var captions = document.getElementsByClassName("captiontext");
-    var dots = document.getElementsByClassName("dot");
-    if (n > slides.length) {slideIndex = 1} 
-    if (n < 1) {slideIndex = slides.length}
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none"; 
-        captions[i].style.display = "none";
-    }
-    for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-    }
-    slides[slideIndex-1].style.display = "block"; 
-    captions[slideIndex-1].style.display = "block";
-    dots[slideIndex-1].className += " active";
-    timer = setTimeout(plusSlides, 5000, 1);
-}
+		$('#slideshow-container .button').on('click', function(){
+			clearTimeout(timeoutID);
+			handler1();
+		});
+
+        /*
+		timeoutID=setTimeout(function(){
+			handler2();	
+            }, 4000);
+            */
+
+})
