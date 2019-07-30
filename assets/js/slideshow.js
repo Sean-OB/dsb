@@ -1,71 +1,119 @@
 $(window).on('load', function(){
-    var pages = $('#slideshow-container li'), current = 0;
-    var currentPage, nextPage;
+    var pages = $('#slideshow-container #slideshow-images li'), current = 0;
+    var captions = $('#slideshow-container #slideshow-captions li');
+    var buttons = $('#slideshow-container .button');
+    var prevButton = $('#slideshow-container .prevButton');
+    var nextButton = $('#slideshow-container .nextButton');
+    var frame = $('#slideshow-container ul');
+    var currentPage, nextPage, currentCaption, nextCaption;
     var timeoutID;
-    var buttonClicked = 0;
+    var hideButtons;
+    var buttonClicked = false;
+    var buttonsDisplayed = false;
 
-    var handler1 = function() {
-        console.log(current);
-        buttonClicked = 1;
-        $('#slideshow-container .button').off();
+    var clickHelper = function(diff) {
+        buttonClicked = true;
+        buttons.off();
+        prevButton.off();
+        nextButton.off();
         currentPage = pages.eq(current);
-        if ($(this).hasClass('prevButton')) {
-            if (current <= 0) {
-                current = pages.length - 1;
+        currentCaption = captions.eq(current);
+        current += diff;
+        if (current < 0) {
+            current = pages.length - 1;
+        } else if (current > pages.length - 1) {
+            current = 0;
+        }
+        nextPage = pages.eq(current);
+        nextCaption = captions.eq(current);
+    }
+
+    var clickLeft = function() {
+        clickHelper(-1);
+        nextPage.css('marginLeft', -30 + 'em');
+        nextPage.show();
+        currentCaption.fadeOut(800);
+        nextCaption.fadeIn(800);
+        nextPage.animate({marginLeft: 0}, 800, () => currentPage.hide());
+        currentPage.animate({marginLeft: 30 + 'em'}, 800, function() {
+            prevButton.on('click', clickLeft);
+            nextButton.on('click', clickRight);
+        });
+    }
+
+    var clickRight = function() {
+        clickHelper(1);
+        nextPage.css('marginLeft', 30 + 'em');
+        nextPage.show();
+        currentCaption.fadeOut(800);
+        nextCaption.fadeIn(800);
+        nextPage.animate({marginLeft: 0}, 800, function(){() => currentPage.hide()});
+        currentPage.animate({marginLeft: -30 + 'em'}, 800, function() {
+            prevButton.on('click', clickLeft);
+            nextButton.on('click', clickRight);
+        });
+    };
+
+    var timedHandler=function(){
+        if (!buttonClicked) {
+            buttons.off();
+            currentPage= pages.eq(current);
+            if (current >= pages.length-1) {
+                current=0;
             } else {
-                current -= 1;
+                current=current+1;
             }
-            nextPage = pages.eq(current);
-            nextPage.css('marginLeft', -30 + 'em');
+            nextPage = pages.eq(current);	
+            nextPage.css("marginLeft", 30+ 'em');
             nextPage.show();
-            nextPage.animate({marginLeft: 0}, 800, () => currentPage.hide());
-            currentPage.animate({marginLeft: 30 + 'em'}, 800, () => $('#slideshow-container .button').on('click', handler1));
-        } else {
-            if (current >= pages.length - 1) {
-                current = 0;
-            } else {
-                current += 1;
-            }
-            nextPage = pages.eq(current);
-            nextPage.css('marginLeft', 30 + 'em');
-            nextPage.show();
-            nextPage.animate({marginLeft: 0}, 800, function(){});
-            currentPage.animate({marginLeft: -30 + 'em'}, 800, () => $('#slideshow-container .button').on('click', handler1));
+            nextPage.animate({ marginLeft: 0 }, 800,function(){});
+            currentPage.animate({ marginLeft: -30 + 'em'}, 800,function(){
+                currentPage.hide();
+                buttons.on('click', clickRight);
+            });
+            timeoutID=setTimeout(function(){
+                timedHandler();	
+            }, 7000);
         }
     };
 
-        var handler2=function(){
-			if (buttonClicked==0) {
-			$('#slideshow-container .button').off('click', handler1);
-			currentPage= pages.eq(current);
-			if (current >= pages.length-1)
-				current=0;
-			else
-				current=current+1;
-			nextPage = pages.eq(current);	
-			nextPage.css("marginLeft",604);
-			nextPage.show();
-			nextPage.animate({ marginLeft: 0 }, 800,function(){
-			});
-			currentPage.animate({ marginLeft: -604 }, 800,function(){
-				currentPage.hide();
-				$('#slideshow-container .button').on('click', handler1);
-			});
-			timeoutID=setTimeout(function(){
-				handler2();	
-			}, 4000);
-			}
-		};
+    nextButton.on('click', function(){
+        clearTimeout(timeoutID);
+        clickRight();
+    });
 
-		$('#slideshow-container .button').on('click', function(){
-			clearTimeout(timeoutID);
-			handler1();
-		});
+    prevButton.on('click', function() {
+        clearTimeout(timeoutID);
+        clickLeft();
+    });
 
-        /*
-		timeoutID=setTimeout(function(){
-			handler2();	
-            }, 4000);
-            */
+    buttons.hover(function() {
+        clearTimeout(hideButtons);
+        buttonsDisplayed = true;
+    }, function() {
+        hideButtons = setTimeout(function() {
+            buttons.fadeOut(400);
+            buttonsDisplayed = false;
+        }, 3000);
+    });
 
+    frame.on('mousemove', function() {
+        clearTimeout(hideButtons);
+        if (!buttonsDisplayed) {
+            buttons.fadeIn(400);
+            buttonsDisplayed = true;
+        }
+        hideButtons = setTimeout(function() {
+            buttons.fadeOut(400);
+            buttonsDisplayed = false;
+        }, 3000);
+    });
+
+    timeoutID = setTimeout(function(){
+        timedHandler();	
+        }, 4000);
+    
+
+    // Hide buttons at beginning until we mouse over the frame
+    buttons.fadeOut();
 })

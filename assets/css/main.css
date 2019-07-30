@@ -1159,7 +1159,7 @@ input, select, textarea {
 			-webkit-transition: -webkit-transform 0.325s ease-in-out, -webkit-filter 0.325s ease-in-out;
 			-ms-transition: -ms-transform 0.325s ease-in-out, -ms-filter 0.325s ease-in-out;
 			transition: transform 0.325s ease-in-out, filter 0.325s ease-in-out;
-			background-image: url("../../images/blue_bg.png");
+			background-image: url("../../images/blue_bg.jpg");
 			background-position: center;
 			background-size: cover;
 			background-repeat: no-repeat;
@@ -1331,7 +1331,7 @@ input, select, textarea {
 
 			#header .content p {
 				/* text-transform: uppercase; */
-				letter-spacing: 0.2rem;
+				letter-spacing: 0.1rem;
 				font-size: 0.8rem;
 				line-height: 2;
 			}
@@ -1630,9 +1630,10 @@ input, select, textarea {
 	max-height: 19em;
 	position: relative;
 	margin: auto;
+	margin-bottom: 3em;
 }
 
-#slideshow-container ul{
+#slideshow-container #slideshow-images{
 	width: 30em;
 	height: 19em;
 	max-width: 30em;
@@ -1643,20 +1644,29 @@ input, select, textarea {
 	overflow:hidden;
 }
 
-#slideshow-container ul img {
+#slideshow-container #slideshow-images img {
 	width: 30em;
 	height: 19em;
 }
 
-#slideshow-container .prevButton{
-	height:72px;
-	width:68px;
+#slideshow-container .button {
+	box-shadow: none;
+	height:3.58em;
+	width:3.38em;
 	position:absolute;
-	/* background:url('../../images/buttons.png') no-repeat; */
+	background:url('../../images/buttons.png') no-repeat;
+	background-size: contain;
+	border: none;
+ 	outline: none;
 	top:50%;
-	margin-top:-36px;
+	margin-top:-1.79em;
 	cursor:pointer;
 	z-index:2000;
+}
+
+#slideshow-container .prevButton{
+	-webkit-transform: scaleX(-1);
+	transform: scaleX(-1);
 	background-position:left top;
 	left:0
 }
@@ -1664,14 +1674,6 @@ input, select, textarea {
 #slideshow-container .prevButton:hover{ background-position:left bottom;left:0;}
 
 #slideshow-container .nextButton{
-	height:72px;
-	width:68px;
-	position:absolute;
-	/* background:url('../../images/buttons.png') no-repeat; */
-	top:50%;
-	margin-top:-36px;
-	cursor:pointer;
-	z-index:2000;
 	background-position:right top;
 	right:0
 }
@@ -1688,6 +1690,15 @@ input, select, textarea {
 	padding-left: 0;
 	position:absolute;
 	display:none;
+}
+
+#slideshow-container ul {
+	list-style-type: none;
+	margin: 0 0 0.5em;
+}
+
+#slideshow-container #slideshow-captions p{
+	line-height: 1;
 }
 
 /* Footer */
