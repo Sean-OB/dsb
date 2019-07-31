@@ -4,7 +4,7 @@ $(window).on('load', function(){
     var buttons = $('#slideshow-container .button');
     var prevButton = $('#slideshow-container .prevButton');
     var nextButton = $('#slideshow-container .nextButton');
-    var frame = $('#slideshow-container ul');
+    var frame = $('#slideshow-container #slideshow-images');
     var currentPage, nextPage, currentCaption, nextCaption;
     var timeoutID;
     var hideButtons;
@@ -12,6 +12,7 @@ $(window).on('load', function(){
     var buttonsDisplayed = false;
 
     var clickHelper = function(diff) {
+        clearTimeout(timeoutID);
         buttonClicked = true;
         buttons.off();
         prevButton.off();
@@ -29,6 +30,7 @@ $(window).on('load', function(){
     }
 
     var clickLeft = function() {
+        console.log('prev button');
         clickHelper(-1);
         nextPage.css('marginLeft', -30 + 'em');
         nextPage.show();
@@ -42,6 +44,7 @@ $(window).on('load', function(){
     }
 
     var clickRight = function() {
+        console.log('next button');
         clickHelper(1);
         nextPage.css('marginLeft', 30 + 'em');
         nextPage.show();
@@ -56,21 +59,7 @@ $(window).on('load', function(){
 
     var timedHandler=function(){
         if (!buttonClicked) {
-            buttons.off();
-            currentPage= pages.eq(current);
-            if (current >= pages.length-1) {
-                current=0;
-            } else {
-                current=current+1;
-            }
-            nextPage = pages.eq(current);	
-            nextPage.css("marginLeft", 30+ 'em');
-            nextPage.show();
-            nextPage.animate({ marginLeft: 0 }, 800,function(){});
-            currentPage.animate({ marginLeft: -30 + 'em'}, 800,function(){
-                currentPage.hide();
-                buttons.on('click', clickRight);
-            });
+            clickRight();
             timeoutID=setTimeout(function(){
                 timedHandler();	
             }, 7000);
@@ -78,12 +67,10 @@ $(window).on('load', function(){
     };
 
     nextButton.on('click', function(){
-        clearTimeout(timeoutID);
         clickRight();
     });
 
     prevButton.on('click', function() {
-        clearTimeout(timeoutID);
         clickLeft();
     });
 

@@ -1631,6 +1631,7 @@ input, select, textarea {
 	position: relative;
 	margin: auto;
 	margin-bottom: 3em;
+	text-align: center;
 }
 
 #slideshow-container #slideshow-images{
@@ -1684,10 +1685,12 @@ input, select, textarea {
 	padding-left: 0;
 	display:list-item;
 	position:absolute;
+	text-align: center;
 }
 
 #slideshow-container li{
 	padding-left: 0;
+	width: 30em;
 	position:absolute;
 	display:none;
 }
@@ -1695,10 +1698,12 @@ input, select, textarea {
 #slideshow-container ul {
 	list-style-type: none;
 	margin: 0 0 0.5em;
+	padding-left: 0;
 }
 
 #slideshow-container #slideshow-captions p{
-	line-height: 1;
+	line-height: 1.25em;
+	margin-bottom: 20em;
 }
 
 /* Footer */
