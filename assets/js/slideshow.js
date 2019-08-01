@@ -1,6 +1,6 @@
 $(window).on('load', function(){
     var pages = $('#slideshow-container #slideshow-images li'), current = 0;
-    var captions = $('#slideshow-container #slideshow-captions li');
+    var captions = $('#slideshow-container .captions li');
     var buttons = $('#slideshow-container .button');
     var prevButton = $('#slideshow-container .prevButton');
     var nextButton = $('#slideshow-container .nextButton');
@@ -60,6 +60,7 @@ $(window).on('load', function(){
     var timedHandler=function(){
         if (!buttonClicked) {
             clickRight();
+            buttonClicked = false;
             timeoutID=setTimeout(function(){
                 timedHandler();	
             }, 7000);
