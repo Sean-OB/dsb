@@ -1574,7 +1574,7 @@ input, select, textarea {
 			position: relative;
 			width: 40rem;
 			max-width: 100%;
-			background-color: rgba(27, 31, 34, 0.85);
+			 background-color: rgba(27, 31, 34, 0.85);
 			border-radius: 4px;
 			opacity: 0;
 		}
@@ -1649,6 +1649,11 @@ input, select, textarea {
 				padding: 3rem 1.5rem 0.5rem 1.5rem ;
 			}
 
+		}
+
+		#main article .main-img {
+			height: 80%;
+			overflow: hidden;
 		}
 
 /* Slideshows */
@@ -1743,7 +1748,7 @@ input, select, textarea {
 		transition: transform 0.325s ease-in-out, filter 0.325s ease-in-out, opacity 0.325s ease-in-out;
 		width: 100%;
 		max-width: 100%;
-		margin-top: 2rem;
+		margin-top: 1.5rem;
 		text-align: center;
 	}
 
@@ -1757,6 +1762,10 @@ input, select, textarea {
 
 		#footer .copyright a {
 			letter-spacing: 0.2rem;
+		}
+
+		#footer ul {
+			margin-bottom: 1.5rem;
 		}
 
 		body.is-article-visible #footer {
