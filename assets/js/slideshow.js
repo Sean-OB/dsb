@@ -30,7 +30,6 @@ $(window).on('load', function(){
     }
 
     var clickLeft = function() {
-        console.log('prev button');
         clickHelper(-1);
         nextPage.css('marginLeft', -30 + 'em');
         nextPage.show();
@@ -44,7 +43,6 @@ $(window).on('load', function(){
     }
 
     var clickRight = function() {
-        console.log('next button');
         clickHelper(1);
         nextPage.css('marginLeft', 30 + 'em');
         nextPage.show();
