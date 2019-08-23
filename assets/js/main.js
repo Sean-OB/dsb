@@ -134,7 +134,9 @@
 
 								// Show article.
 									$article.show();
-
+									
+								// Change background
+									$body.css('background-color', 'white');
 								// Activate article.
 									setTimeout(function() {
 
@@ -225,6 +227,10 @@
 								$article.hide();
 								$main.hide();
 
+							// Change background color
+								console.log('howdy');
+								$body.css('background-color', '');
+
 							// Show footer, header.
 								$footer.show();
 								$header.show();
@@ -264,10 +270,16 @@
 							$footer.show();
 							$header.show();
 
+							console.log('doing stuff');
+							$body.css('background-color', 'white');
+							$body.css('background', '');
+							$body.css('background-image', '');
+
 						// Unmark as visible.
 							setTimeout(function() {
 
 								$body.removeClass('is-article-visible');
+
 
 								// Window stuff.
 									$window
@@ -345,7 +357,6 @@
 
 						// Hide.
 							$main._hide();
-
 					}
 
 				// Otherwise, check for a matching article.
