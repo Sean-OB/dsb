@@ -1174,7 +1174,7 @@ input, select, textarea {
 			-webkit-transition-delay: 0.75s;
 			-ms-transition-delay: 0.75s;
 			transition-delay: 0.75s;
-			background-image: url('../../images/blue_bg.png');
+			background-image: linear-gradient(to top, rgba(0, 32, 62, 0.5), rgba(0, 64, 124, 0.5)), url("../../images/overlay.png");
 			background-size: cover;
 			background-position: center,
  center;
@@ -1587,8 +1587,7 @@ input, select, textarea {
 			position: relative;
 			width: 40rem;
 			max-width: 100%;
-/* 			 background-color: rgba(27, 31, 34, 0.85); */
-			background-color: rgba(24, 0, 72, 1);
+ 			 background-color: rgba(27, 31, 34, 0.85);
 			border-radius: 20px;
 			opacity: 0;
 		}

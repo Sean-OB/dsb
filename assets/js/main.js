@@ -203,6 +203,12 @@
 
 				var $article = $main_articles.filter('.active');
 
+				console.log('doing stuff');
+				$('#bg:before').css({
+					'background-image': '',
+					'background-color': 'white'
+				});
+
 				// Article not visible? Bail.
 					if (!$body.hasClass('is-article-visible'))
 						return;
@@ -269,11 +275,6 @@
 						// Show footer, header.
 							$footer.show();
 							$header.show();
-
-							console.log('doing stuff');
-							$body.css('background-color', 'white');
-							$body.css('background', '');
-							$body.css('background-image', '');
 
 						// Unmark as visible.
 							setTimeout(function() {
