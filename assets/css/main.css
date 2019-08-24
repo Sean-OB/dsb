@@ -24,7 +24,7 @@ section, summary, time, mark, audio, video {
 	border-color: rgba(24, 0, 72, 1);
 	font-size: 100%;
 	font: inherit;
-	letter-spacing: 0.05rem;
+	letter-spacing: 0.07rem;
 	vertical-align: baseline;}
 
 article, aside, details, figcaption, figure,
@@ -186,8 +186,9 @@ input, select, textarea {
 		}
 
 	strong, b {
-		color: #000000;
+		color: #ffffff;
 		font-weight: 600;
+		margin-bottom: 0.3rem;
 	}
 
 	em, i {
@@ -195,7 +196,7 @@ input, select, textarea {
 	}
 
 	p {
-		margin: 0 0 0.5rem 0;
+		margin: 0.5rem 0 1rem;
 	}
 
 	h1, h2, h3, h4, h5, h6 {
@@ -976,7 +977,7 @@ input, select, textarea {
 	}
 
 		table tbody tr {
-			border: solid 1px #000000;
+			border: solid 1px #ffffff;
 			border-left: 0;
 			border-right: 0;
 		}
@@ -987,15 +988,22 @@ input, select, textarea {
 
 		table td {
 			padding: 0.75em 0.75em;
+			font-size: 90%;
+		}
+		
+		table td.time {
+			white-space: nowrap;
 		}
 
 		table th {
-			color: #000000;
+			color: #ffffff;
 			font-size: 0.9em;
 			font-weight: 600;
 			padding: 0 0.75em 0.75em 0.75em;
 			text-align: left;
 		}
+
+			table th 
 
 		table thead {
 			border-bottom: solid 2px #000000;
@@ -1049,8 +1057,8 @@ input, select, textarea {
 		background-color: transparent;
 		border-radius: 4px;
 		border: 0;
-		box-shadow: inset 0 0 0 1px #000000;
-		color: #000000 !important;
+		box-shadow: inset 0 0 0 1px #ffffff;
+		color: #ffffff !important;
 		cursor: pointer;
 		display: inline-block;
 		font-size: 0.8rem;
@@ -1321,7 +1329,7 @@ input, select, textarea {
 
 		#header h1, h2, h3, h4, h5, h6 {
 			letter-spacing: 0.1rem;
-			margin: 0 0 1rem;
+			margin: 0.5rem 0 1rem;
 		}
 
 		#header > :first-child {
@@ -1333,11 +1341,8 @@ input, select, textarea {
 			}
 
 		#header .logo {
-			width: 5.5rem;
-			height: 5.5rem;
-			line-height: 5.5rem;
-			border: solid 1px #000000;
-			border-radius: 100%;
+			width: 15rem;
+			margin-top: 1rem;
 		}
 
 			#header .logo .icon:before {
@@ -1404,8 +1409,8 @@ input, select, textarea {
 					min-width: 9rem;
 					height: 2.75rem;
 					line-height: 2.75rem;
-					/* padding: 0 1.25rem 0 1.45rem; */
-					padding: 0 4rem 0 4rem; /* Use for only 3 items */
+/*					padding: 0 1.25rem 0 1.45rem; */
+					padding: 0 3.5rem 0 3.5rem; /* Use for only 3 items */
 					text-transform: uppercase;
 					letter-spacing: 0.15rem;
 					font-size: 0.8rem;
@@ -1594,6 +1599,7 @@ input, select, textarea {
 			background-color: rgba(24, 0, 72, 1);
 			border-radius: 20px;
 			opacity: 0;
+			align-items: center;
 		}
 
 		#main nav ul, {
@@ -1775,6 +1781,7 @@ input, select, textarea {
 
 #slideshow-container .captions p{
 	line-height: 1.25em;
+	margin: 0 0 0.5rem;
 }
 
 /* Footer */
@@ -1786,7 +1793,7 @@ input, select, textarea {
 		transition: transform 0.325s ease-in-out, filter 0.325s ease-in-out, opacity 0.325s ease-in-out;
 		width: 100%;
 		max-width: 100%;
-		margin-top: 1.5rem;
+		margin-top: 0.5rem;
 		text-align: center;
 	}
 
@@ -1803,7 +1810,7 @@ input, select, textarea {
 		}
 
 		#footer ul {
-			margin-bottom: 1.5rem;
+			margin-bottom: 0.5rem;
 		}
 
 		body.is-article-visible #footer {
