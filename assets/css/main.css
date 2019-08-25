@@ -1390,7 +1390,7 @@ input, select, textarea {
 				/* text-transform: uppercase; */
 				letter-spacing: 0.05rem;
 				font-size: 0.8rem;
-				line-height: 2;
+				line-height: 1.7;
 			}
 
 		nav {
