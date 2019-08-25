@@ -1536,20 +1536,12 @@ input, select, textarea {
 				}
 
 				#header nav ul {
-					-moz-justify-content: center;
-					-webkit-justify-content: center;
-					-ms-justify-content: center;
-					justify-content: center;
-					width: 100%;
-					margin-left: 0;
-					/*
 					-moz-flex-direction: column;
 					-webkit-flex-direction: column;
 					-ms-flex-direction: column;
 					flex-direction: column;
 					min-width: 10rem;
 					max-width: 100%;
-					*/
 				}
 
 				#header nav ul li:first-child {
