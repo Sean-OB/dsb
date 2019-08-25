@@ -117,6 +117,17 @@ input, select, textarea {
 		font-size: 16pt;
 	}
 
+		@media screen {
+			html {
+				font-size: 12pt;
+			}
+
+			#slideshow-container {
+				--slideshow-width: 30em;
+				--slideshow-height: 19em;
+			}
+		}
+
 		@media screen and (max-width: 1680px) {
 
 			html {
@@ -1382,6 +1393,11 @@ input, select, textarea {
 				line-height: 2;
 			}
 
+		nav {
+			max-width: 30.5rem;
+			margin: 0 auto;
+		}
+
 		nav ul {
 			display: -moz-flex;
 			display: -webkit-flex;
@@ -1397,6 +1413,7 @@ input, select, textarea {
 			nav ul li {
 				padding-left: 0;
 				border-left: solid 1px #000000;
+				vertical-align: middle;
 			}
 
 				nav ul li:first-child {
@@ -1490,8 +1507,7 @@ input, select, textarea {
 				}
 
 			#header .logo {
-				width: 4.75rem;
-				height: 4.75rem;
+				width: 15rem;
 				line-height: 4.75rem;
 			}
 
@@ -1520,12 +1536,24 @@ input, select, textarea {
 				}
 
 				#header nav ul {
+					-moz-justify-content: center;
+					-webkit-justify-content: center;
+					-ms-justify-content: center;
+					justify-content: center;
+					width: 100%;
+					margin-left: 0;
+					/*
 					-moz-flex-direction: column;
 					-webkit-flex-direction: column;
 					-ms-flex-direction: column;
 					flex-direction: column;
 					min-width: 10rem;
 					max-width: 100%;
+					*/
+				}
+
+				#header nav ul li:first-child {
+					padding-left: 0;
 				}
 
 					#header nav ul li {
@@ -1668,10 +1696,6 @@ input, select, textarea {
 
 			#main article {
 				padding: 3.5rem 2rem 0.5rem 2rem ;
-			}
-
-			#main h1, h2, h3, h4, h5, h6, p {
-				color: white;
 			}
 
 				#main article .close:before {
