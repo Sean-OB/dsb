@@ -11,6 +11,7 @@ $(window).on('load', function(){
     var buttonClicked = false;
     var buttonsDisplayed = false;
 
+    // Helper function to set up vars before moving left/right
     var clickHelper = function(diff) {
         clearTimeout(timeoutID);
         buttonClicked = true;
@@ -27,41 +28,46 @@ $(window).on('load', function(){
         }
         nextPage = pages.eq(current);
         nextCaption = captions.eq(current);
+        nextPage.clearQueue();
+        currentPage.clearQueue();
     }
 
     var clickLeft = function() {
+        console.log("clicking left");
         clickHelper(-1);
         nextPage.css('marginLeft', -30 + 'em');
         nextPage.show();
         currentCaption.fadeOut(800);
         nextCaption.fadeIn(800);
-        nextPage.animate({marginLeft: 0}, 800, () => currentPage.hide());
+        nextPage.animate({marginLeft: 0}, 800, () => currentPage.hide(), queue=false);
         currentPage.animate({marginLeft: 30 + 'em'}, 800, function() {
             prevButton.on('click', clickLeft);
             nextButton.on('click', clickRight);
-        });
+        }, queue=false);
     }
 
     var clickRight = function() {
+        console.log("clicking right");
         clickHelper(1);
         nextPage.css('marginLeft', 30 + 'em');
         nextPage.show();
         currentCaption.fadeOut(800);
         nextCaption.fadeIn(800);
-        nextPage.animate({marginLeft: 0}, 800, function(){() => currentPage.hide()});
+        nextPage.animate({marginLeft: 0}, 800, () => currentPage.hide(), queue=false);
         currentPage.animate({marginLeft: -30 + 'em'}, 800, function() {
             prevButton.on('click', clickLeft);
             nextButton.on('click', clickRight);
-        });
+        }, queue=false);
     };
 
     var timedHandler=function(){
         if (!buttonClicked) {
             clickRight();
+            console.log(currentPage.queue());
+            console.log(nextPage.queue());
+            console.log();
             buttonClicked = false;
-            timeoutID=setTimeout(function(){
-                timedHandler();	
-            }, 7000);
+            timeoutID = setTimeout(timedHandler, 7000);
         }
     };
 
