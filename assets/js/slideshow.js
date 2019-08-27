@@ -33,7 +33,6 @@ $(window).on('load', function(){
     }
 
     var clickLeft = function() {
-        console.log("clicking left");
         clickHelper(-1);
         nextPage.css('marginLeft', -30 + 'em');
         nextPage.show();
@@ -47,7 +46,6 @@ $(window).on('load', function(){
     }
 
     var clickRight = function() {
-        console.log("clicking right");
         clickHelper(1);
         nextPage.css('marginLeft', 30 + 'em');
         nextPage.show();
@@ -63,9 +61,6 @@ $(window).on('load', function(){
     var timedHandler=function(){
         if (!buttonClicked) {
             clickRight();
-            console.log(currentPage.queue());
-            console.log(nextPage.queue());
-            console.log();
             buttonClicked = false;
             timeoutID = setTimeout(timedHandler, 7000);
         }
